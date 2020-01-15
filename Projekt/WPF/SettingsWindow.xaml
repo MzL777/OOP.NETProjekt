@@ -1,0 +1,58 @@
+﻿<Window x:Class="WPF.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        xmlns:lang="clr-namespace:WPF.Properties"
+        xmlns:custom="clr-namespace:WPF.Custom_"
+        mc:Ignorable="d"
+        Title="{x:Static lang:Resources.settings}" Height="450" Width="800"
+        Background="{custom:LinearGradientRed}"
+        ResizeMode="NoResize"
+        >
+    
+    
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 50">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="160"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="{x:Static lang:Resources.settings}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0 0 0 25" FontSize="20" HorizontalAlignment="Center" ></Label>
+
+        <Label Content="{x:Static lang:Resources.displayLanguage}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right"></Label>
+        
+        
+        <ComboBox x:Name="ddlLanguage" Grid.Column="1" Grid.Row="1" Width="150" Margin="0 0 0 20"/>
+
+
+        <GroupBox Header="{x:Static lang:Resources.displayMode}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" BorderThickness="0">
+            <GroupBox.Content>
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton x:Name="rb1" 
+                                 Content="Fullscreen"
+                                 Margin="10"
+                                 IsChecked="True"
+                                 Checked="Rb1_Checked"
+                                 />
+                    <RadioButton x:Name="rb2" 
+                                 Content="{x:Static lang:Resources.defaultSize}"
+                                 Margin="10"
+                                 Checked="Rb2_Checked"
+                                 />
+                </StackPanel>
+            </GroupBox.Content>
+        </GroupBox>
+
+
+        <Button x:Name="btnOk" Grid.Column="0" Grid.Row="3" Height="30" Width="80" Content="{x:Static lang:Resources.save}" IsDefault="True" Click="BtnOk_Click" AutomationProperties.AcceleratorKey="Enter"></Button>
+        <Button x:Name="btnCancel" Grid.Column="1" Grid.Row="3" Height="30" Width="80" Content="{x:Static lang:Resources.cancel}" IsCancel="True" AutomationProperties.AcceleratorKey="Escape" HorizontalAlignment="Right"></Button>
+    </Grid>
+</Window>
